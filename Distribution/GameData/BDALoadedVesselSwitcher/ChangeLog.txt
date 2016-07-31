@@ -1,0 +1,9 @@
+= v1.1.1
+- KSP v1.1.3 compatibility
+- Structural changes to solution to support Automatied build and package deployment 
+
+= v1.1
+- KSP v1.1 compatibility
+
+= v1.0
+- Release
