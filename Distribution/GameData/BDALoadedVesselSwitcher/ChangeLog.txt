@@ -1,3 +1,6 @@
+= v1.1.3Beta
+- KSP v1.2 compatibility (Prerelease Only)
+
 = v1.1.2
 - Correct Assembly Version conflicts with BDArmory 
 
