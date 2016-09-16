@@ -70,6 +70,7 @@
     <Content Include="LocalDev\pdb2mdb_exe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Distribution\GameData\BDALoadedVesselSwitcher\BDALoadedVesselSwitcher.version" />
     <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
