@@ -1,3 +1,7 @@
+= v1.1.4Beta
+- KSP v1.2.2 compatibility
+- UI shows the status (Landed or Splashed) for each vessel 
+
 = v1.1.3Beta
 - KSP v1.2 compatibility (Prerelease Only)
 
