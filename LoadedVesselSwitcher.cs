@@ -208,7 +208,11 @@ namespace BDALoadedVesselSwitcher
 				float lineY = height + (vesselLineA * (buttonHeight + buttonGap));
 				Rect buttonRect = new Rect(margin, lineY, vesselButtonWidth, buttonHeight);
 				GUIStyle vButtonStyle = wm.vessel.isActiveVessel ? HighLogic.Skin.box : HighLogic.Skin.button;
-				if(GUI.Button(buttonRect, wm.vessel.GetName(), vButtonStyle))
+
+			    var status = UpdateVesselStatus(wm, vButtonStyle);
+
+
+			    if(GUI.Button(buttonRect, status + wm.vessel.GetName(), vButtonStyle))
 				{
 					FlightGlobals.ForceSetActiveVessel(wm.vessel);
 				}
@@ -250,15 +254,19 @@ namespace BDALoadedVesselSwitcher
 				float lineY = height + (vesselLineB * (buttonHeight + buttonGap));
 
 				Rect buttonRect = new Rect(margin, lineY, vesselButtonWidth, buttonHeight);
-				GUIStyle vButtonStyle = wm.vessel.isActiveVessel ? HighLogic.Skin.box : HighLogic.Skin.button;
-				if(GUI.Button(buttonRect, wm.vessel.GetName(), vButtonStyle))
-				{
-					FlightGlobals.ForceSetActiveVessel(wm.vessel);
-				}
+                GUIStyle vButtonStyle = wm.vessel.isActiveVessel ? HighLogic.Skin.box : HighLogic.Skin.button;
+
+                var status = UpdateVesselStatus(wm, vButtonStyle);
 
 
-				//guard toggle
-				GUIStyle guardStyle = wm.guardMode ? HighLogic.Skin.box : HighLogic.Skin.button;
+                if (GUI.Button(buttonRect, status + wm.vessel.GetName(), vButtonStyle))
+                {
+                    FlightGlobals.ForceSetActiveVessel(wm.vessel);
+                }
+
+
+                //guard toggle
+                GUIStyle guardStyle = wm.guardMode ? HighLogic.Skin.box : HighLogic.Skin.button;
 				Rect guardButtonRect = new Rect(margin+vesselButtonWidth, lineY, buttonHeight, buttonHeight);
 				if(GUI.Button(guardButtonRect, "G", guardStyle))
 				{
@@ -291,7 +299,29 @@ namespace BDALoadedVesselSwitcher
 			windowHeight = height;
 		}
 
-		void SwitchToNextVessel()
+	    private string UpdateVesselStatus(MissileFire wm, GUIStyle vButtonStyle)
+	    {
+	        var status = "";
+	        if (wm.vessel.LandedOrSplashed)
+	        {
+	            if (wm.vessel.Landed)
+	            {
+	                status = "(Landed)";
+	            }
+	            else
+	            {
+	                status = "(Splashed)";
+	            }
+	            vButtonStyle.fontStyle = FontStyle.Italic;
+	        }
+	        else
+	        {
+	            vButtonStyle.fontStyle = FontStyle.Normal;
+	        }
+	        return status;
+	    }
+
+	    void SwitchToNextVessel()
 		{
 			bool switchNext = false;
 			foreach(var wm in wmgrsA)
