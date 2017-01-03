@@ -1,6 +1,6 @@
 {
   "NAME": "VesselSwitcher",
-  "URL":"http://ksp-avc.cybutek.net/version.php?id=349",
+  "URL":"https://raw.githubusercontent.com/PapaJoesSoup/BDALoadedVesselSwitcher/master/Distribution/GameData/BDALoadedVesselSwitcher/BDALoadedVesselSwitcher.version",
   "DOWNLOAD":"https://github.com/PapaJoesSoup/BDALoadedVesselSwitcher/releases/tag/1.1.4.0",
   "CHANGE_LOG_URL":"https://github.com/PapaJoesSoup/BDALoadedVesselSwitcher/blob/master/Distribution/GameData/BDALoadedVesselSwitcher/ChangeLog.txt",
   "VERSION": {
@@ -18,5 +18,10 @@
     "MAJOR": 1,
 	  "MINOR": 2,
 	  "PATCH": 0
+  }
+  "KSP_VERSION_MAX": {
+    "MAJOR": 1,
+	  "MINOR": 2,
+	  "PATCH": 99
   }
 }
